@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Learn NumPy : NumPy 50 exercises and solution</title>
+  <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
+  <meta name="description" content="Explore and run machine learning code with Kaggle Notebooks | Using data from multiple data sources">
+  <meta name="turbolinks-cache-control" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+  <meta name="theme-color" content="#008ABC">
+  <script src="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/cb=gapi.es" nonce="" async=""></script><script type="text/javascript" async="" src="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-7n6vgomA6WpD0Uc3Ek9C0sERdLyOSaXD3g9lKz969gYaN0vWSlwqk6p8H7rG36tP" nonce=""></script><script nonce="" type="text/javascript">
+    window["pageRequestStartTime"] = 1710491612259;
+    window["pageRequestEndTime"] = 1710491612423;
+    window["initialPageLoadStartTime"] = new Date().getTime();
+  </script>
+  <script nonce="" id="gsi-client" src="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/client" async="" defer="defer"></script>
+  <script nonce="">window.KAGGLE_JUPYTERLAB_PATH = "/static/assets/jupyterlab/jupyterlab-index-abcd0f3a3852a6ad5899.html";</script>
+  <link rel="preconnect" href="https://www.google-analytics.com/" crossorigin="anonymous"><link rel="preconnect" href="https://stats.g.doubleclick.net/"><link rel="preconnect" href="https://storage.googleapis.com/"><link rel="preconnect" href="https://apis.google.com/">
+  <link href="https://www.kaggle.com/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link rel="manifest" href="https://www.kaggle.com/static/json/manifest.json" crossorigin="use-credentials">
+
+
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+
+
+  <link href="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/icon.css" rel="preload" as="style">
+  <link href="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/css.css" rel="preload" as="style">
+  <link href="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/css2.css" rel="preload" as="style">
+  <link href="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/icon.css" rel="stylesheet" media="all" id="async-google-font-1">
+  <link href="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/css.css" rel="stylesheet" media="all" id="async-google-font-2">
+  <link href="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/css2.css" rel="stylesheet" media="all" id="async-google-font-3">
+  <script nonce="" type="text/javascript">
+    const styleSheetIds = ["async-google-font-1", "async-google-font-2", "async-google-font-3"];
+    styleSheetIds.forEach(function (id) {
+      document.getElementById(id).addEventListener("load", function() {
+        this.media = "all";
+      });
+    });
+  </script>
+
+  <script nonce="" src="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/enterprise.js" async="" defer="defer"></script>
+   <style>.grecaptcha-badge { visibility: hidden; }</style>
+
+    <link rel="canonical" href="https://www.kaggle.com/code/themlphdstudent/learn-numpy-numpy-50-exercises-and-solution">
+    <link rel="stylesheet" type="text/css" href="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/vendor.css">
+    <link rel="stylesheet" type="text/css" href="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/app.css">
+
+  
+    
+ 
+      <script nonce="">
+        try{(function(a,s,y,n,c,h,i,d,e){d=s.createElement("style");
+        d.appendChild(s.createTextNode(""));s.head.appendChild(d);d=d.sheet;
+        y=y.map(x => d.insertRule(x + "{ opacity: 0 !important }"));
+        h.start=1*new Date;h.end=i=function(){y.forEach(x => x<d.cssRules.length ? d.deleteRule(x) : {})};
+        (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+        })(window,document,['.site-header-react__nav'],'dataLayer',2000,{'GTM-52LNT9S':true});}catch(ex){}
+    </script><style></style>
+    <script nonce="">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-T7QHS60L4Q', {
+            'optimize_id': 'GTM-52LNT9S',
+            'displayFeaturesTask': null,
+            'send_page_view': false,
+            'content_group1': 'Notebooks'
+        });
+    </script>
+    <script nonce="" async="" src="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/js"></script>
+
+  
+    
+    <meta name="og:url" content="https://kaggle.com/code/themlphdstudent/learn-numpy-numpy-50-exercises-and-solution">
+    <meta property="og:title" content="Learn NumPy : NumPy 50 exercises and solution">
+    <meta property="og:description" content="Explore and run machine learning code with Kaggle Notebooks | Using data from multiple data sources">
+    <meta property="og:type" content="website">
+    <meta name="og:image" content="https://storage.googleapis.com/kaggle-avatars/thumbnails/5521351-kg.JPG">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@kaggledatasets">
+
+
+  <meta name="twitter:site" content="@Kaggle"> 
+  
+    
+    <script nonce="" type="application/ld+json">{"@context":"http://schema.org/","@type":"Article","author":{"@type":"Person","name":"themlphdstudent","sameAs":"/themlphdstudent"},"headline":"Learn NumPy : NumPy 50 exercises and solution","url":"https://www.kaggle.com/code/themlphdstudent/learn-numpy-numpy-50-exercises-and-solution","dateModified":"2020-09-06T17:12:25.7466667Z","datePublished":"2020-09-06T17:12:25.7466667Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.kaggle.com/code/themlphdstudent/learn-numpy-numpy-50-exercises-and-solution"},"publisher":{"@type":"Organization","name":"Kaggle","sameAs":"https://www.kaggle.com","logo":{"type":"ImageObject","url":"https://www.kaggle.com/static/images/site-logo.png"}},"image":["https://storage.googleapis.com/kaggle-avatars/thumbnails/5521351-kg.JPG"]}</script>
+
+
+  
+    
+        <link rel="alternate" type="application/json+oembed" href="https://www.kaggle.com/oembed/kernel?url=https%3A%2F%2Fwww.kaggle.com%2Fcode%2Fthemlphdstudent%2Flearn-numpy-numpy-50-exercises-and-solution%3FscriptVersionId%3D42115859" title="Learn NumPy : NumPy 50 exercises and solution">
+
+
+  
+    
+
+
+    <script nonce="">window['useKaggleAnalytics'] = true;</script>
+
+  <script id="gapi-target" nonce="" src="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/api.js" defer="defer" async="" gapi_processed="true"></script>
+  <script nonce="" src="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/runtime.js" data-turbolinks-track="reload"></script><script>/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+var __webpack_exports__ = {};
+
+;// CONCATENATED MODULE: ../core/dist/flash-identifiers.js
+const FLASH_MIMETYPE = "application/x-shockwave-flash";
+const FUTURESPLASH_MIMETYPE = "application/futuresplash";
+const FLASH7_AND_8_MIMETYPE = "application/x-shockwave-flash2-preview";
+const FLASH_MOVIE_MIMETYPE = "application/vnd.adobe.flash.movie";
+const FLASH_ACTIVEX_CLASSID = "clsid:D27CDB6E-AE6D-11cf-96B8-444553540000";
+
+;// CONCATENATED MODULE: ../core/dist/plugin-polyfill.js
+
+/**
+ * Replacement object for `MimeTypeArray` that lets us install new fake mime
+ * types.
+ *
+ * Unlike plugins we can at least enumerate mime types in Firefox, so we don't
+ * lose data.
+ *
+ * We also expose a method called `install` which adds a new plugin. This is
+ * used to falsify Flash detection. If the existing `navigator.mimeTypes` has an
+ * `install` method, you should not use `RuffleMimeTypeArray` as some other
+ * plugin emulator is already present.
+ */
+class RuffleMimeTypeArray {
+    constructor(mimeTypes) {
+        this.__mimeTypes = [];
+        this.__namedMimeTypes = {};
+        if (mimeTypes) {
+            for (let i = 0; i < mimeTypes.length; i++) {
+                this.install(mimeTypes[i]);
+            }
+        }
+    }
+    /**
+     * Install a MIME Type into the array.
+     *
+     * @param mimeType The mime type to install
+     */
+    install(mimeType) {
+        const index = this.__mimeTypes.length;
+        this.__mimeTypes.push(mimeType);
+        this.__namedMimeTypes[mimeType.type] = mimeType;
+        this[mimeType.type] = mimeType;
+        this[index] = mimeType;
+    }
+    item(index) {
+        // This behavior is done to emulate a 32-bit uint,
+        // which browsers use.
+        return this.__mimeTypes[index >>> 0];
+    }
+    namedItem(name) {
+        return this.__namedMimeTypes[name];
+    }
+    get length() {
+        return this.__mimeTypes.length;
+    }
+    [Symbol.iterator]() {
+        return this.__mimeTypes[Symbol.iterator]();
+    }
+}
+/**
+ * Equivalent object to `Plugin` that allows us to falsify plugins.
+ */
+class RufflePlugin extends RuffleMimeTypeArray {
+    constructor(name, description, filename) {
+        super();
+        this.name = name;
+        this.description = description;
+        this.filename = filename;
+    }
+}
+/**
+ * Replacement object for `PluginArray` that lets us install new fake plugins.
+ *
+ * This object needs to wrap the native plugin array, since the user might have
+ * actual plugins installed. Firefox doesn't let us enumerate the array, though,
+ * which has some consequences. Namely, we can't actually perfectly wrap the
+ * native plugin array, at least unless there's some secret "unresolved object
+ * property name handler" that I've never known before in JS...
+ *
+ * We can still wrap `namedItem` perfectly at least.
+ *
+ * We also expose a method called `install` which adds a new plugin. This is
+ * used to falsify Flash detection. If the existing `navigator.plugins` has an
+ * `install` method, you should not use `RufflePluginArray` as some other plugin
+ * emulator is already present.
+ */
+class RufflePluginArray {
+    constructor(plugins) {
+        this.__plugins = [];
+        this.__namedPlugins = {};
+        for (let i = 0; i < plugins.length; i++) {
+            this.install(plugins[i]);
+        }
+    }
+    install(plugin) {
+        const index = this.__plugins.length;
+        this.__plugins.push(plugin);
+        this.__namedPlugins[plugin.name] = plugin;
+        this[plugin.name] = plugin;
+        this[index] = plugin;
+    }
+    item(index) {
+        // This behavior is done to emulate a 32-bit uint,
+        // which browsers use. Cloudflare's anti-bot
+        // checks rely on this.
+        return this.__plugins[index >>> 0];
+    }
+    namedItem(name) {
+        return this.__namedPlugins[name];
+    }
+    refresh() {
+        // Nothing to do, we just need to define the method.
+    }
+    [Symbol.iterator]() {
+        return this.__plugins[Symbol.iterator]();
+    }
+    get length() {
+        return this.__plugins.length;
+    }
+}
+/**
+ * A fake plugin designed to trigger Flash detection scripts.
+ */
+const FLASH_PLUGIN = new RufflePlugin("Shockwave Flash", "Shockwave Flash 32.0 r0", "ruffle.js");
+FLASH_PLUGIN.install({
+    type: FUTURESPLASH_MIMETYPE,
+    description: "Shockwave Flash",
+    suffixes: "spl",
+    enabledPlugin: FLASH_PLUGIN,
+});
+FLASH_PLUGIN.install({
+    type: FLASH_MIMETYPE,
+    description: "Shockwave Flash",
+    suffixes: "swf",
+    enabledPlugin: FLASH_PLUGIN,
+});
+FLASH_PLUGIN.install({
+    type: FLASH7_AND_8_MIMETYPE,
+    description: "Shockwave Flash",
+    suffixes: "swf",
+    enabledPlugin: FLASH_PLUGIN,
+});
+FLASH_PLUGIN.install({
+    type: FLASH_MOVIE_MIMETYPE,
+    description: "Shockwave Flash",
+    suffixes: "swf",
+    enabledPlugin: FLASH_PLUGIN,
+});
+/**
+ * Install a fake plugin such that detectors will see it in `navigator.plugins`.
+ *
+ * This function takes care to check if the existing implementation of
+ * `navigator.plugins` already accepts fake plugin entries. If so, it will use
+ * that version of the plugin array. This allows the plugin polyfill to compose
+ * across multiple plugin emulators with the first emulator's polyfill winning.
+ *
+ * @param plugin The plugin to install
+ */
+function installPlugin(plugin) {
+    if (!("install" in navigator.plugins) || !navigator.plugins["install"]) {
+        Object.defineProperty(navigator, "plugins", {
+            value: new RufflePluginArray(navigator.plugins),
+            writable: false,
+        });
+    }
+    const plugins = navigator.plugins;
+    plugins.install(plugin);
+    if (plugin.length > 0 &&
+        (!("install" in navigator.mimeTypes) || !navigator.mimeTypes["install"])) {
+        Object.defineProperty(navigator, "mimeTypes", {
+            value: new RuffleMimeTypeArray(navigator.mimeTypes),
+            writable: false,
+        });
+    }
+    const mimeTypes = navigator.mimeTypes;
+    for (let i = 0; i < plugin.length; i += 1) {
+        mimeTypes.install(plugin[i]);
+    }
+}
+
+;// CONCATENATED MODULE: ./src/plugin-polyfill.ts
+// This file is compiled and then injected into content.ts's compiled form.
+
+installPlugin(FLASH_PLUGIN);
+
+/******/ })()
+;</script><script charset="utf-8" src="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/ruffle.js"></script>
+  <script nonce="" src="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/vendor.js" data-turbolinks-track="reload"></script><style id="googleidentityservice_button_styles" nonce="">.qJTHM{-moz-user-select:none;color:#202124;direction:ltr;font-family:"Roboto-Regular",arial,sans-serif;font-weight:400;margin:0;overflow:hidden}.ynRLnc{left:-9999px;position:absolute;top:-9999px}.L6cTce{display:none}.bltWBb{word-break:break-all}.hSRGPd{color:#1a73e8;cursor:pointer;font-weight:500;text-decoration:none}.Bz112c-W3lGp{height:16px;width:16px}.Bz112c-E3DyYd{height:20px;width:20px}.Bz112c-r9oPif{height:24px;width:24px}.Bz112c-uaxL4e{-moz-border-radius:10px;border-radius:10px}.LgbsSe-Bz112c{display:block}.S9gUrf-YoZ4jf,.S9gUrf-YoZ4jf *{border:none;margin:0;padding:0}.fFW7wc-ibnC6b>.aZ2wEe>div{border-color:#4285f4}.P1ekSe-ZMv3u>div:nth-child(1){background-color:#1a73e8!important}.P1ekSe-ZMv3u>div:nth-child(2),.P1ekSe-ZMv3u>div:nth-child(3){background-image:linear-gradient(to right,rgba(255,255,255,.7),rgba(255,255,255,.7)),linear-gradient(to right,#1a73e8,#1a73e8)!important}.haAclf{display:inline-block}.nsm7Bb-HzV7m-LgbsSe{border-radius:4px;box-sizing:border-box;transition:background-color .218s,border-color .218s;-moz-user-select:none;background-color:#fff;background-image:none;border:1px solid #dadce0;color:#3c4043;cursor:pointer;font-family:"Google Sans",arial,sans-serif;font-size:14px;height:40px;letter-spacing:0.25px;outline:none;overflow:hidden;padding:0 12px;position:relative;text-align:center;vertical-align:middle;white-space:nowrap;width:auto}@media screen and (-ms-high-contrast:active){.nsm7Bb-HzV7m-LgbsSe{border:2px solid windowText;color:windowText}}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe{font-size:14px;height:32px;letter-spacing:0.25px;padding:0 10px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe{font-size:11px;height:20px;letter-spacing:0.3px;padding:0 8px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe{padding:0;width:40px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.pSzOP-SxQuSe{width:32px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.purZT-SxQuSe{width:20px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK{border-radius:20px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK.pSzOP-SxQuSe{border-radius:16px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK.purZT-SxQuSe{border-radius:10px}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc{border:none;color:#fff}.nsm7Bb-HzV7m-LgbsSe.MFS4be-v3pZbf-Ia7Qfc{background-color:#1a73e8}.nsm7Bb-HzV7m-LgbsSe.MFS4be-JaPV2b-Ia7Qfc{background-color:#202124;color:#e8eaed}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:18px;margin-right:8px;min-width:18px;width:18px}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:14px;min-width:14px;width:14px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:10px;min-width:10px;width:10px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin-left:8px;margin-right:-4px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin:0;padding:10px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{padding:8px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{padding:4px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-top-left-radius:3px;border-bottom-left-radius:3px;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;justify-content:center;align-items:center;background-color:#fff;height:36px;margin-left:-10px;margin-right:12px;min-width:36px;width:36px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf .nsm7Bb-HzV7m-LgbsSe-Bz112c,.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin:0;padding:0}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{height:28px;margin-left:-8px;margin-right:10px;min-width:28px;width:28px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{height:16px;margin-left:-6px;margin-right:8px;min-width:16px;width:16px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:3px;margin-left:2px;margin-right:0;padding:0}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:18px}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:14px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:8px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-bN97Pc-sM5MNb{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;align-items:center;flex-direction:row;justify-content:space-between;flex-wrap:nowrap;height:100%;position:relative;width:100%}.nsm7Bb-HzV7m-LgbsSe .oXtfBe-l4eHX{justify-content:center}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-BPrWId{flex-grow:1;font-family:"Google Sans",arial,sans-serif;font-weight:500;overflow:hidden;text-overflow:ellipsis;vertical-align:top}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-BPrWId{font-weight:300}.nsm7Bb-HzV7m-LgbsSe .oXtfBe-l4eHX .nsm7Bb-HzV7m-LgbsSe-BPrWId{flex-grow:0}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-MJoBVe{transition:background-color .218s;bottom:0;left:0;position:absolute;right:0;top:0}.nsm7Bb-HzV7m-LgbsSe:hover,.nsm7Bb-HzV7m-LgbsSe:focus{box-shadow:none;border-color:#d2e3fc;outline:none}.nsm7Bb-HzV7m-LgbsSe:hover .nsm7Bb-HzV7m-LgbsSe-MJoBVe,.nsm7Bb-HzV7m-LgbsSe:focus .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(66,133,244,.04)}.nsm7Bb-HzV7m-LgbsSe:active .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(66,133,244,.1)}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:hover .nsm7Bb-HzV7m-LgbsSe-MJoBVe,.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:focus .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(255,255,255,.24)}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:active .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(255,255,255,.32)}.nsm7Bb-HzV7m-LgbsSe .n1UuX-DkfjY{border-radius:50%;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;height:20px;margin-left:-4px;margin-right:8px;min-width:20px;width:20px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId{font-family:"Roboto";font-size:12px;text-align:left}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .ssJRIf,.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff .fmcmS{overflow:hidden;text-overflow:ellipsis}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;align-items:center;color:#5f6368;fill:#5f6368;font-size:11px;font-weight:400}.nsm7Bb-HzV7m-LgbsSe.jVeSEe.MFS4be-Ia7Qfc .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff{color:#e8eaed;fill:#e8eaed}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff .Bz112c{height:18px;margin:-3px -3px -3px 2px;min-width:18px;width:18px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-top-left-radius:0;border-bottom-left-radius:0;border-top-right-radius:3px;border-bottom-right-radius:3px;margin-left:12px;margin-right:-10px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:18px}.L5Fo6c-sM5MNb{border:0;display:block;left:0;position:relative;top:0}.L5Fo6c-bF1uUb{-moz-border-radius:4px;border-radius:4px;bottom:0;cursor:pointer;left:0;position:absolute;right:0;top:0}.L5Fo6c-bF1uUb:focus{border:none;outline:none}sentinel{}</style><meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
+  <script nonce="" src="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/app.js" data-turbolinks-track="reload"></script>
+    <script nonce="" type="text/javascript">
+      window.kaggleStackdriverConfig = {
+        key: 'AIzaSyA4eNqUdRRskJsCZWVz-qL655Xa5JEMreE',
+        projectId: 'kaggle-161607',
+        service: 'web-fe',
+        version: 'ci',
+        userId: '0'
+      }
+    </script>
+<script type="text/javascript" src="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/MathJax.js"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888; display: contents}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style data-styled="active" data-styled-version="6.1.8"></style><link rel="stylesheet" type="text/css" href="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/KernelViewer.56ec1322d855ad0f5482.css"><style data-emotion="css" data-s=""></style></head>
+
+<body data-turbolinks="false" style="background-color: rgb(255, 255, 255);"><div id="MathJax_Message" style="display: none;"></div>
+  <main>
+    
+
+
+
+
+
+<div id="site-container"><div style="height: inherit; --mdc-theme-on-primary: #FFFFFF; --mdc-theme-on-surface: rgba(0, 0, 0, 0.87); --mdc-theme-text-primary-on-background: rgba(0, 0, 0, 0.87); --mdc-theme-text-secondary-on-background: rgba(0, 0, 0, 0.54); --mdc-theme-text-hint-on-background: rgba(0, 0, 0, 0.38); --mdc-theme-text-disabled-on-background: rgba(0, 0, 0, 0.38); --mdc-theme-text-icon-on-background: rgba(0, 0, 0, 0.38); --mdc-theme-primary: #20BEFF; --mdc-theme-error: #E24B0D; --mdc-theme-background: #F8F8F8; --mdc-theme-surface: #FFFFFF; --mdc-theme-primary-bg: #20BEFF; --mdc-theme-secondary-bg: #919294;" class=""><div id="rmwcPortal"><div class="mdc-menu sc-cZpZpK rCsTA sc-dlunQd gTZloZ mdc-menu-surface mdc-menu-surface--is-open-below" style="transform-origin: center top 0px; left: 0px; top: 123px; max-height: 495px;" aria-hidden="true"><ul role="menu" class="mdc-list mdc-menu__items mdc-list"><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-bqOYya gjKoJB mdc-list-item"><div class="mdc-list-item__ripple mdc-ripple-upgraded"></div><div class="sc-ettago EebFf"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dhvkUd sc-gHjVMF cgLynE" aria-hidden="true">code</i><p class="sc-dJGMql gfqVtV">New Notebook</p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-bqOYya gjKoJB mdc-list-item"><div class="mdc-list-item__ripple mdc-ripple-upgraded"></div><div class="sc-ettago EebFf"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dhvkUd sc-gHjVMF cgLynE" aria-hidden="true">table_chart</i><p class="sc-dJGMql gfqVtV">New Dataset</p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-bqOYya gjKoJB mdc-list-item"><div class="mdc-list-item__ripple mdc-ripple-upgraded"></div><div class="sc-ettago EebFf"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dhvkUd sc-gHjVMF cgLynE" aria-hidden="true">tenancy</i><p class="sc-dJGMql gfqVtV">New Model</p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-bqOYya gjKoJB mdc-list-item"><div class="mdc-list-item__ripple mdc-ripple-upgraded"></div><div class="sc-ettago EebFf"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dhvkUd sc-gHjVMF cgLynE" aria-hidden="true">emoji_events</i><p class="sc-dJGMql gfqVtV">New Competition</p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-bqOYya gjKoJB mdc-list-item"><div class="mdc-list-item__ripple mdc-ripple-upgraded"></div><div class="sc-ettago EebFf"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dhvkUd sc-gHjVMF cgLynE" aria-hidden="true">corporate_fare</i><p class="sc-dJGMql gfqVtV">New Organization</p></div></li></ul></div><div class="sc-hVsJot dnxhyw sc-hTJRIj dIRlzI mdc-menu-surface"><div tabindex="-1" data-testid="sentinelStart"></div><div role="document"><div class="sc-iayxjh cAIWzR"><div tabindex="0" class="sc-damGuE GTqUf"><h2 class="sc-fmKFGs hXhfOa">No Active Events</h2><br><p class="sc-dJGMql gfqVtV">Create notebooks and keep track of their status here.</p><br><div class="sc-cUuGV jcVtAZ"><a href="https://www.kaggle.com/code/welcome" target="_blank" tabindex="0" class="sc-iqziPC bbEnzI"><button aria-label="Add new notebook opens in new window" tabindex="-1" role="button" class="sc-eXzmLu fgItzm"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw cbjrzV">add</i><span class="sc-bBkKde epgXIi">New Notebook</span></button></a></div></div><ul role="list" class="km-list"><li role="listitem" aria-label="undefined List Item" class="sc-hNDLBw jZtKNY"><div class="sc-drMgrp jwppnS sc-bYTSMr sNdZD" aria-label="undefined List Item Content"><a tabindex="0" class="sc-YltrM cmBkJB"><div class="sc-fGrmBj bbGjeL"><div class="sc-dsAqUS ittTyv"><div class="sc-dmcoYd faukHa"><div class="sc-hWnHHk eldMOr"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw gIbDSK sc-lfBPVL dxxgTw" aria-label="Open Active Events dialog">auto_awesome_motion</i></div></div></div><div class="sc-blmEgr sc-bjUHJT dnzoDX tVGXW"><p class="sc-dJGMql jCrglO">0 Active Events</p></div></div></a><div class="sc-imiRDh gncfzk"><i aria-label="Close Active Events dialog" role="button" tabindex="0" class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dhvkUd">expand_more</i></div></div></li></ul></div></div><div tabindex="-1" data-testid="sentinelEnd"></div></div><div class="mdc-menu sc-cZpZpK iWaTlh sc-hBKOLh bWvWLq mdc-menu-surface" aria-hidden="true"><ul role="menu" class="mdc-list mdc-menu__items mdc-list"><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-bqOYya gjKoJB mdc-list-item"><div class="mdc-list-item__ripple mdc-ripple-upgraded"></div><div class="sc-ettago EebFf"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dhvkUd sc-gHjVMF cgLynE" aria-hidden="true">call_split</i><p class="sc-dJGMql gfqVtV">Copy &amp; edit notebook</p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-bqOYya gjKoJB mdc-list-item"><div class="mdc-list-item__ripple mdc-ripple-upgraded"></div><div class="sc-ettago EebFf"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dhvkUd sc-gHjVMF cgLynE" aria-hidden="true">history</i><p class="sc-dJGMql gfqVtV">View versions</p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-bqOYya gjKoJB mdc-list-item"><div class="mdc-list-item__ripple mdc-ripple-upgraded"></div><div class="sc-ettago EebFf"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dhvkUd sc-gHjVMF cgLynE" aria-hidden="true">content_paste</i><p class="sc-dJGMql gfqVtV">Copy API command</p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-bqOYya gjKoJB mdc-list-item"><div class="mdc-list-item__ripple mdc-ripple-upgraded"></div><div class="sc-ettago EebFf"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dhvkUd sc-gHjVMF cgLynE" aria-hidden="true">open_in_new</i><p class="sc-dJGMql gfqVtV">Open in Google Notebooks</p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-bqOYya gjKoJB mdc-list-item"><div class="mdc-list-item__ripple mdc-ripple-upgraded"></div><div class="sc-ettago EebFf"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dhvkUd sc-gHjVMF cgLynE" aria-hidden="true">open_in_new</i><p class="sc-dJGMql gfqVtV">Open in Colab</p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-bqOYya gjKoJB mdc-list-item"><div class="mdc-list-item__ripple mdc-ripple-upgraded"></div><div class="sc-ettago EebFf"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dhvkUd sc-gHjVMF cgLynE" aria-hidden="true">notifications</i><p class="sc-dJGMql gfqVtV">Follow comments</p></div></li><div class="sc-ZaPur gACWyV"></div><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-bqOYya gjKoJB mdc-list-item"><div class="mdc-list-item__ripple mdc-ripple-upgraded"></div><div class="sc-ettago EebFf"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dhvkUd sc-gHjVMF cgLynE" aria-hidden="true">file_download</i><p class="sc-dJGMql gfqVtV">Download code</p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-bqOYya gjKoJB mdc-list-item"><div class="mdc-list-item__ripple mdc-ripple-upgraded"></div><div class="sc-ettago EebFf"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dhvkUd sc-gHjVMF cgLynE" aria-hidden="true">create_new_folder</i><p class="sc-dJGMql gfqVtV">Add to Collection</p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-bqOYya gjKoJB mdc-list-item"><div class="mdc-list-item__ripple mdc-ripple-upgraded"></div><div class="sc-ettago EebFf"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dhvkUd sc-gHjVMF cgLynE" aria-hidden="true">bookmark_border</i><p class="sc-dJGMql gfqVtV">Bookmark</p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-bqOYya gjKoJB mdc-list-item"><div class="mdc-list-item__ripple mdc-ripple-upgraded"></div><div class="sc-ettago EebFf"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dhvkUd sc-gHjVMF cgLynE" aria-hidden="true">code</i><p class="sc-dJGMql gfqVtV">Embed notebook</p></div></li></ul></div></div><div id="kaggle-portal-root-global"></div><div class="sc-itwRVv sc-CWyWW jzeqTj kJdaik"><div class="sc-dvmEHd cJKkrU"><div class="sc-cMdfCE bLbYfv"><div class="sc-iJrEMN kicovU"><button aria-label="menu" class="sc-jIBlqr hXNnzD google-material-icons">menu</button></div><a href="#site-content" class="sc-gjLLEI sc-kjKYmT kZjAbX bIrXdt">Skip to<br>content</a><div class="sc-grhZJe BKTIw"><a href="https://www.kaggle.com/"><img src="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/site-logo.svg" alt="Kaggle" class="sc-emwzcK gxuuOw"></a></div></div></div><div class="sc-gUhVhA lovdbO"><div class="mdc-menu-surface--anchor"><button data-menutarget="true" class="sc-eyCcmj dMeFXI"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;"><path fill-rule="evenodd" clip-rule="evenodd" d="M20 30L20 16L16 20L16 30L20 30Z" fill="#20BEFF"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M20 20L30 20L30 16L20 16L20 20Z" fill="#20BEFF"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M16 20L20 16L15.937 16L6 16L6 20L16 20Z" fill="#20BEFF"></path><rect x="20" y="16" width="4" height="10" transform="rotate(-180 20 16)" fill="#20BEFF"></rect></svg><span class="sc-dmXWDj sc-ekcpMq jAuasW jXxuef">Create</span></button><div></div></div></div><div class="sc-hIuemL eLcFUO"><div class="sc-lhpuNi jzvjws"><div class="sc-gZkFim kaTMRw"><div class="sc-bHduTz dQFRXJ"><div class="sc-dRcDZk enTkVe"><div class="sc-fzuLxF MBvmj"><div class="sc-jMCldn dvuEUc"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw gIbDSK sc-bWbSeO hNpjUW">search</i></div><input placeholder="Search" aria-label="Search" class="sc-iYqbYc efiCsG"></div></div></div><ul role="list" class="km-list"><li role="listitem" aria-label="undefined List Item" class="sc-hNDLBw jZtKNY"><div class="sc-drMgrp jwppnS sc-kGKnMn icGdiP" aria-label="undefined List Item Content"><a tabindex="0" href="https://www.kaggle.com/" data-click-log-id="home" class="sc-YltrM cmBkJB"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw gIbDSK sc-kskBmu cZRzHa" title="Home" aria-label="Home" aria-hidden="true">explore</i><p style="padding-left: 20px;" class="sc-ifyrAs cgNHIv">Home</p></a></div></li><li role="listitem" aria-label="undefined List Item" class="sc-hNDLBw jZtKNY"><div class="sc-drMgrp jwppnS sc-kGKnMn icGdiP" aria-label="undefined List Item Content"><a tabindex="0" href="https://www.kaggle.com/competitions" data-click-log-id="competitions" class="sc-YltrM cmBkJB"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw gIbDSK sc-kskBmu cZRzHa" title="Competitions" aria-label="Competitions" aria-hidden="true">emoji_events</i><p style="padding-left: 20px;" class="sc-ifyrAs cgNHIv">Competitions</p></a></div></li><li role="listitem" aria-label="undefined List Item" class="sc-hNDLBw jZtKNY"><div class="sc-drMgrp jwppnS sc-kGKnMn icGdiP" aria-label="undefined List Item Content"><a tabindex="0" href="https://www.kaggle.com/datasets" data-click-log-id="datasets" class="sc-YltrM cmBkJB"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw gIbDSK sc-kskBmu cZRzHa" title="Datasets" aria-label="Datasets" aria-hidden="true">table_chart</i><p style="padding-left: 20px;" class="sc-ifyrAs cgNHIv">Datasets</p></a></div></li><li role="listitem" aria-label="undefined List Item" class="sc-hNDLBw jZtKNY"><div class="sc-drMgrp jwppnS sc-kGKnMn icGdiP" aria-label="undefined List Item Content"><a tabindex="0" href="https://www.kaggle.com/models" data-click-log-id="models" class="sc-YltrM cmBkJB"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw gIbDSK sc-kskBmu cZRzHa" title="Models" aria-label="Models" aria-hidden="true">tenancy</i><p style="padding-left: 20px;" class="sc-ifyrAs cgNHIv">Models</p></a></div></li><li role="listitem" aria-label="undefined List Item" class="sc-hNDLBw jZtKNY"><div class="sc-drMgrp jvUxdk sc-kGKnMn icGdiP" aria-label="undefined List Item Content"><a tabindex="0" href="https://www.kaggle.com/code" data-click-log-id="code" class="sc-YltrM cmBkJB"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dhvkUd sc-kskBmu cZRzHa" title="Code" aria-label="Code" aria-hidden="true">code</i><p style="padding-left: 20px;" class="sc-ifyrAs kmYiIk">Code</p><div class="sc-cWUBqk fGHqlV"></div></a></div></li><li role="listitem" aria-label="undefined List Item" class="sc-hNDLBw jZtKNY"><div class="sc-drMgrp jwppnS sc-kGKnMn icGdiP" aria-label="undefined List Item Content"><a tabindex="0" href="https://www.kaggle.com/discussions" data-click-log-id="discussions" class="sc-YltrM cmBkJB"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw gIbDSK sc-kskBmu cZRzHa" title="Discussions" aria-label="Discussions" aria-hidden="true">comment</i><p style="padding-left: 20px;" class="sc-ifyrAs cgNHIv">Discussions</p></a></div></li><li role="listitem" aria-label="undefined List Item" class="sc-hNDLBw jZtKNY"><div class="sc-drMgrp jwppnS sc-kGKnMn icGdiP" aria-label="undefined List Item Content"><a tabindex="0" href="https://www.kaggle.com/learn" data-click-log-id="learn" class="sc-YltrM cmBkJB"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw gIbDSK sc-kskBmu cZRzHa" title="Learn" aria-label="Learn" aria-hidden="true">school</i><p style="padding-left: 20px;" class="sc-ifyrAs cgNHIv">Learn</p></a></div></li><li role="listitem" aria-label="undefined List Item" class="sc-hNDLBw jZtKNY"><div class="sc-drMgrp jwppnS sc-kGKnMn icGdiP" aria-label="undefined List Item Content"><a tabindex="0" href="#" data-click-log-id="more" class="sc-YltrM cmBkJB"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw gIbDSK sc-kskBmu cZRzHa" title="More" aria-label="More" aria-hidden="true">expand_more</i><p style="padding-left: 20px;" class="sc-ifyrAs cgNHIv">More</p></a></div></li></ul></div></div><div class="sc-cwpupp gunYkZ"><div class="mdc-menu-surface--anchor"><div></div><button class="sc-kgEFvu cXJfsA"><div class="sc-hWnHHk eldMOr"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw gIbDSK sc-lfBPVL dxxgTw" aria-label="Open Active Events dialog">auto_awesome_motion</i></div><p class="sc-ifyrAs sc-hdpnRd cgNHIv hgFGQB">View Active Events</p></button></div></div></div></div><div class="sc-gHRYGD kSHopx"><div class="sc-dlDPRo cwlERk"><div class="sc-cMdfCE bLbYfv"><div class="sc-iJrEMN kicovU"><button aria-label="menu" class="sc-jIBlqr hXNnzD google-material-icons">menu</button></div><a href="#site-content" class="sc-gjLLEI sc-kjKYmT kZjAbX bIrXdt">Skip to<br>content</a><div class="sc-grhZJe BKTIw"><a href="https://www.kaggle.com/"><img src="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/site-logo.svg" alt="Kaggle" class="sc-emwzcK gxuuOw"></a></div></div></div><div class="sc-ia-dotI gtaKzP"><div class="sc-cHWeeV fFMWaG"><div class="sc-dRcDZk enTkVe"><div class="sc-fzuLxF MBvmj"><div class="sc-jMCldn dvuEUc"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw gIbDSK sc-bWbSeO hNpjUW">search</i></div><input placeholder="Search" aria-label="Search" class="sc-iYqbYc efiCsG"></div></div></div><div class="sc-KDzwu gucBnW"><div class="sc-kUNLVD kZSTwR"><div class="sc-dxfTlo dqVlR"><a href="https://www.kaggle.com/account/login?phase=startSignInTab&amp;returnUrl=%2Fcode%2Fthemlphdstudent%2Flearn-numpy-numpy-50-exercises-and-solution" class="sc-juusvx fPCDKP"><button tabindex="0" role="button" class="sc-eXzmLu fyDCMu"><span class="sc-bBkKde epgXIi">Sign In</span></button></a></div><div class="sc-dxfTlo dqVlR"><a href="https://www.kaggle.com/account/login?phase=startRegisterTab&amp;returnUrl=%2Fcode%2Fthemlphdstudent%2Flearn-numpy-numpy-50-exercises-and-solution" class="sc-juusvx fPCDKP"><button tabindex="0" role="button" class="sc-eXzmLu KgQOv"><span class="sc-bBkKde epgXIi">Register</span></button></a></div></div></div></div></div><div id="site-content" class="sc-fSurle gEAoZz legacy-less-light-theme"><div class="sc-bhvJaM gKjfRr"><div class="sc-beySPh fjDmTC"><div data-nosnippet="true" class="sc-guDLey ikMvru">Kaggle uses cookies from Google to deliver and enhance the quality of its services and to analyze traffic.</div><div class="sc-dmyCSP LXVpb"><a href="https://www.kaggle.com/cookies" class="sc-eDLKkx bhvwfN"><div class="sc-hLQSwg fulZla">Learn more.</div></a><div class="sc-hLQSwg fulZla">OK, Got it.</div></div></div></div><div><div data-testid="notebook-detail-render-tid" class="sc-fhrDCu jryvQi"><div class="sc-leGcMD jdpJsX"><div height="1px" class="sc-hDUTmO fsxSRK"></div><div class="sc-bLrFDB hshkeq"><div class="sc-cjWkmD bpolGw"><a href="https://www.kaggle.com/themlphdstudent" aria-label="Durgesh Samariya" class="sc-hlqirL kLYVdW"><div data-testid="avatar-image" style="background-image: url(&quot;https://storage.googleapis.com/kaggle-avatars/thumbnails/5521351-kg.JPG&quot;);" title="Durgesh Samariya" class="sc-gWQvRS qBGNl"></div><svg width="32" height="32" viewBox="0 0 32 32"><circle r="15" cx="16" cy="16" fill="none" stroke-width="2" style="stroke: rgb(241, 243, 244);"></circle><path d="M 7.183221215612905 28.135254915624213 A 15 15 0 1 0 16 1" fill="none" style="stroke: rgb(101, 31, 255);" stroke-width="2"></path></svg></a><span style="flex: 1 1 0%; margin-left: 16px;"><span><span class="sc-lnsjTu gQDhUC">Durgesh Samariya </span></span><span class="sc-lnsjTu gQDhUC"> · <span class="sc-iaptuj ubMfz" title="Sun Sep 06 2020 21:42:24 GMT+0430 (Iran Daylight Time)" aria-label="4 years ago">4y ago</span> · 32,040 views</span></span></div><div wrap="hide" class="sc-jiVyRc dNREjS sc-gGLJUK kVWkuM"><div class="sc-dba-DnL cDhmmF"><h1 class="sc-eTNRI sc-cMAQNS iudEzZ hVdeow">Learn NumPy : NumPy 50 exercises and solution</h1><span style="margin-bottom: 0px; max-width: 894px;" class="sc-dmXWDj sc-bNSORF cLdaqZ cCQcWJ">Python · <a href="https://www.kaggle.com/datasets/uciml/iris" class="sc-gjLLEI kZjAbX">Iris Species</a>, <a href="https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database" class="sc-gjLLEI kZjAbX">Pima Indians Diabetes Database</a>, <a href="https://www.kaggle.com/datasets/uciml/mushroom-classification" class="sc-gjLLEI kZjAbX">Mushroom Classification</a> <span>+2</span></span></div><div style="align-self: unset;" wrap="hide" class="sc-OQdlP ghsoVm"></div></div></div><div height="1px" class="sc-hDUTmO fsxSRK"></div><div class="sc-gihflI eUAhwF"><div class="sc-bLrFDB hshkeq"><div class="sc-eAwtmd cSkLYi"><div class="sc-iXlSUk dePPpy"><div class="sc-Likne eBpLli"><h2 class="sc-hABBmJ sc-cFCoRT gBXVCV cOejYq">Learn NumPy : NumPy 50 exercises and solution</h2><div class="sc-doVUVI jUPFyG"><div class="sc-OTnVn gkxuUP"><div class="sc-dzNqJo gctAOQ"><div class="sc-fqCdsd ja-DeKm"><button mode="default" data-testid="upvotebutton__upvote" aria-label="Upvote" title="Upvote" class="sc-hSWyVn sc-hEwMvu iJoZbm ekdYGr"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dhvkUd">arrow_drop_up</i></button><button mode="default" aria-label="78 votes" aria-live="polite" class="sc-hSWyVn sc-eFzpJt iJoZbm hPXpRk">78</button></div></div><div class="sc-hOiXKP bvkImm sc-kEMYli hrjxfH"><div class="sc-cDdODC sc-eTJFYW jVktHH fYhVXq"><span><a href="https://www.kaggle.com/kernels/fork-version/42115859" tabindex="0" class="sc-iqziPC bbEnzI"><button class="sc-eXzmLu KgQOv sc-exxTir sc-cSKifd ipQkvl kVrbhB" tabindex="-1" role="button"><span class="sc-bBkKde epgXIi">Copy &amp; Edit</span></button></a></span><button class="sc-eXzmLu KgQOv sc-gIwJxn sc-lnGzSg ewJuol BVUou" tabindex="0" role="button"><span class="sc-bBkKde epgXIi"><span aria-label="312 copies">312</span></span></button></div></div><img src="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/silverl@1x.png" alt="silver medal" class="sc-hHuMxz ctxJZT"><div><button aria-label="more_vert" class="sc-jIBlqr hXNnzD google-material-icons">more_vert</button><div class="mdc-menu-surface--anchor"><div></div></div></div></div></div></div></div><div class="sc-emfenM duRmKI"><div class="sc-bgykEL gznpNS sc-ggziSB jOsrDv" role="tablist"><button role="tab" aria-selected="true" class="sc-eFtBfi TzdqG"><div class="sc-eCBGDA fSHxlr"><span class="sc-dmXWDj kjqCqm">Notebook</span><span class="sc-bdGqdd dzykbo"></span></div></button><button role="tab" aria-selected="false" class="sc-eFtBfi TzdqG"><div class="sc-eCBGDA fSHxlr"><span class="sc-dmXWDj cLdaqZ">Input</span></div></button><button role="tab" aria-selected="false" class="sc-eFtBfi TzdqG"><div class="sc-eCBGDA fSHxlr"><span class="sc-dmXWDj cLdaqZ">Output</span></div></button><button role="tab" aria-selected="false" class="sc-eFtBfi TzdqG"><div class="sc-eCBGDA fSHxlr"><span class="sc-dmXWDj cLdaqZ">Logs</span></div></button><button role="tab" aria-selected="false" class="sc-eFtBfi TzdqG"><div class="sc-eCBGDA fSHxlr"><span class="sc-dmXWDj cLdaqZ">Comments (5)</span></div></button></div></div></div></div><div class="sc-jMbVJB gnJuoh sc-bCvmQg hFievV sc-RrbFI DqjiK"></div></div><div class="sc-ughJd rVbDn"><div class="sc-gIVWWl cKgOFk" width="914"><div class="sc-bkTvXO gZKOsH"><div><div class="sc-blmEgr sc-hRhxOB dnzoDX kXbkya">Run</div><p class="sc-dJGMql sc-hzJlkW gfqVtV guHDJz">25.4s</p></div><button tabindex="0" role="button" class="sc-eXzmLu cuciWA"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dgOjli">history</i><span class="sc-bBkKde epgXIi">Version 10 of 10</span></button></div></div><div class="sc-jMbVJB gnJuoh sc-fbNxvw iHEThr" width="914"></div><div class="sc-SKMsf dqFQDa"><div style="margin-top: 16px;"><div class="sc-lihxfj ikMyaq sc-fZZVMt bQttZI mdc-chip-set" id="combo-tags-menu-chipset"><a tabindex="1" href="https://www.kaggle.com/code?tagIds=13102-Beginner" rel="noreferrer" target="_blank"><button style="cursor: pointer; margin-right: 0px;" role="checkbox" aria-checked="false" aria-label="Beginner" class="sc-lfpCDB dVPnLj"><span class="sc-khjJXk sc-hqaNxa iiUvTE iSflcW">Beginner</span></button></a><a tabindex="1" href="https://www.kaggle.com/code?tagIds=16609-NumPy" rel="noreferrer" target="_blank"><button style="cursor: pointer; margin-right: 0px;" role="checkbox" aria-checked="false" aria-label="NumPy" class="sc-lfpCDB dVPnLj"><span class="sc-khjJXk sc-hqaNxa iiUvTE iSflcW">NumPy</span></button></a><a tabindex="1" href="https://www.kaggle.com/code?tagIds=16639-Python" rel="noreferrer" target="_blank"><button style="cursor: pointer; margin-right: 0px;" role="checkbox" aria-checked="false" aria-label="Python" class="sc-lfpCDB dVPnLj"><span class="sc-khjJXk sc-hqaNxa iiUvTE iSflcW">Python</span></button></a><a tabindex="1" href="https://www.kaggle.com/code?tagIds=16002-Learn" rel="noreferrer" target="_blank"><button style="cursor: pointer; margin-right: 0px;" role="checkbox" aria-checked="false" aria-label="Learn" class="sc-lfpCDB dVPnLj"><span class="sc-khjJXk sc-hqaNxa iiUvTE iSflcW">Learn</span></button></a></div><div class="mdc-menu-surface--anchor"></div></div></div><div class="sc-iomPlI fpdaxZ"><div class="sc-fDsMxH iPLkkr sc-fqUDxZ jceWDf"><div class="MuiDrawer-root MuiDrawer-docked sc-cPtzlb kJjkVn sc-kzcVRu dsOIpm css-1tu59u4"><div class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiDrawer-paper MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight css-1ciwpa8"><div style="height: 100%;" class="drawer-outer-container"><div style="transform: none; transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;"><div class="sc-gUjWJS blYYkq sc-dYrVsq iNDYWS"><div style="flex-grow: 1;" class="sc-blmEgr sc-aZJEH dnzoDX fOzRrz">Table of Contents</div><button aria-label="Close Table of Contents" id="notebook-table-of-contents-trigger" title="Close Table of Contents" class="sc-jIBlqr gfYcWb google-material-icons">chevron_right</button></div><div class="sc-kiTBBF eCOOir sc-iAKYlq cHkzlG"><div role="tablist" class="sc-crsjir fKHWhS"><button tabindex="0" role="tab" class="sc-fvbEVI bRVUdt sc-OBAEZ cpdVxj"><div class="sc-iCMBLB bloYJv"></div><span style="width: 100%;"><p class="sc-dLTMsI flPclH">NumPy Exercises</p></span></button><button tabindex="0" role="tab" class="sc-fvbEVI gcEYAO sc-OBAEZ cpdVxj" aria-selected="true"><div class="sc-iCMBLB lblNCQ"></div><span style="width: 100%;"><p class="sc-dLTMsI flPclH">Table of Content</p></span></button></div></div></div></div></div></div></div><div class="sc-cSVnVf EUclI"><div style="display: block;"><div class="sc-eOtiQg eDwxDv"><div class="sc-gINnuV edLKAq"><div class="sc-faCFuX dgzVlc mdc-dialog"><div class="mdc-dialog__container"><div class="mdc-dialog__surface" role="alertdialog" aria-modal="true"></div></div><div class="mdc-dialog__scrim"></div></div><iframe id="rendered-kernel-content" src="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/__results__.html" style="height: 33602px; display: block;" scrolling="no" title="Main Notebook Content" class="sc-HiIYf gtMIau"></iframe><div style="display: none;" class="sc-kcknSm iQXnLs"><div aria-valuemin="0" aria-valuemax="1" class="rmwc-circular-progress rmwc-circular-progress--indeterminate" role="meter"><svg class="rmwc-circular-progress__circle" viewBox="0 0 24 24"><circle class="rmwc-circular-progress__path" cx="12" cy="12" r="10"></circle></svg></div></div></div></div></div></div></div><div class="sc-SKMsf dqFQDa"><div class="sc-jMbVJB gnJuoh"></div><div class="sc-kPtIzs FdTnj"><h2 class="sc-fmKFGs hXhfOa">License</h2><p class="sc-hIPBNq sc-cTbVvr cOifoa jsA-dPC">This Notebook has been released under the <a href="http://www.apache.org/licenses/LICENSE-2.0" class="sc-gjLLEI kZjAbX">Apache 2.0</a> open source license.</p></div><div class="sc-kPtIzs sc-lnYniu FdTnj coToVO"><h2 class="sc-hABBmJ gBXVCV">Continue exploring</h2><ul role="list" class="km-list sc-iJnfZx erKodR"><li role="listitem" aria-label="undefined List Item" class="sc-hNDLBw jZtKNY"><div class="sc-drMgrp jwppnS sc-fONOnE hNPzMc" aria-label="undefined List Item Content"><a tabindex="0" class="sc-YltrM cmBkJB"><div class="sc-fGrmBj bbGjeL"><div class="sc-dsAqUS ittTyv"><div class="sc-dmcoYd faukHa"><img src="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/input_light.svg" alt=""></div></div><div class="sc-vIyEI nVaLp"><div class="sc-blmEgr sc-bjUHJT dnzoDX tVGXW">Input</div><span class="sc-fLseNd sc-hBgdUx jNVRes gVGVQu">5 files</span></div></div></a><div class="sc-imiRDh lhsFvk"><i aria-hidden="true" class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dhvkUd">arrow_right_alt</i></div></div><div class="sc-jMbVJB gnJuoh"></div></li><li role="listitem" aria-label="undefined List Item" class="sc-hNDLBw jZtKNY"><div class="sc-drMgrp jwppnS sc-fONOnE hNPzMc" aria-label="undefined List Item Content"><a tabindex="0" class="sc-YltrM cmBkJB"><div class="sc-fGrmBj bbGjeL"><div class="sc-dsAqUS ittTyv"><div class="sc-dmcoYd faukHa"><img src="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/output_light.svg" alt=""></div></div><div class="sc-vIyEI nVaLp"><div class="sc-blmEgr sc-bjUHJT dnzoDX tVGXW">Output</div><span class="sc-fLseNd sc-hBgdUx jNVRes gVGVQu">0 files</span></div></div></a><div class="sc-imiRDh lhsFvk"><i aria-hidden="true" class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dhvkUd">arrow_right_alt</i></div></div><div class="sc-jMbVJB gnJuoh"></div></li><li role="listitem" aria-label="undefined List Item" class="sc-hNDLBw jZtKNY"><div class="sc-drMgrp jwppnS sc-fONOnE hNPzMc" aria-label="undefined List Item Content"><a tabindex="0" class="sc-YltrM cmBkJB"><div class="sc-fGrmBj bbGjeL"><div class="sc-dsAqUS ittTyv"><div class="sc-dmcoYd faukHa"><img src="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/logs_light.svg" alt=""></div></div><div class="sc-vIyEI nVaLp"><div class="sc-blmEgr sc-bjUHJT dnzoDX tVGXW">Logs</div><span class="sc-fLseNd sc-hBgdUx jNVRes gVGVQu">25.4 second run - successful</span></div></div></a><div class="sc-imiRDh lhsFvk"><i aria-hidden="true" class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dhvkUd">arrow_right_alt</i></div></div><div class="sc-jMbVJB gnJuoh"></div></li><li role="listitem" aria-label="undefined List Item" class="sc-hNDLBw jZtKNY"><div class="sc-drMgrp jwppnS sc-fONOnE hNPzMc" aria-label="undefined List Item Content"><a tabindex="0" class="sc-YltrM cmBkJB"><div class="sc-fGrmBj bbGjeL"><div class="sc-dsAqUS ittTyv"><div class="sc-dmcoYd faukHa"><img src="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/comments_light.svg" alt=""></div></div><div class="sc-vIyEI nVaLp"><div class="sc-blmEgr sc-bjUHJT dnzoDX tVGXW">Comments</div><span class="sc-fLseNd sc-hBgdUx jNVRes gVGVQu">5 comments</span></div></div></a><div class="sc-imiRDh lhsFvk"><i aria-hidden="true" class="rmwc-icon rmwc-icon--ligature google-material-icons sc-iBdnpw dhvkUd">arrow_right_alt</i></div></div></li></ul></div></div><div class="sc-faCFuX itojaq mdc-dialog"><div class="mdc-dialog__container"><div class="mdc-dialog__surface" role="alertdialog" aria-modal="true"></div></div><div class="mdc-dialog__scrim"></div></div><div class="sc-faCFuX dIKNgF sc-cnjBov ksXgnN mdc-dialog"><div class="mdc-dialog__container"><div class="mdc-dialog__surface" role="alertdialog" aria-modal="true"></div></div><div class="mdc-dialog__scrim"></div></div><div class="sc-hbxnAh iIIyZP"><div class="sc-faCFuX dwPJXH mdc-dialog"><div class="mdc-dialog__container"><div class="mdc-dialog__surface" role="alertdialog" aria-modal="true"></div></div><div class="mdc-dialog__scrim"></div></div></div><div class="sc-faCFuX dIKNgF mdc-dialog"><div class="mdc-dialog__container"><div class="mdc-dialog__surface" role="alertdialog" aria-modal="true"></div></div><div class="mdc-dialog__scrim"></div></div></div></div></div></div></div><div role="presentation"></div></div></div>
+
+<div id="site-body" class="hide">
+    
+
+
+
+
+<script nonce="" type="text/x-mathjax-config;executed=true">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+    preferredFont: "TeX",
+    availableFonts: ["STIX", "TeX"],
+    linebreaks: {
+    automatic: true
+    },
+    EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+    inlineMath: [["\\(", "\\)"], ["\\\\(", "\\\\)"]],
+    displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|dno"
+    },
+    TeX: {
+    noUndefined: {
+    attributes: {
+    mathcolor: "red",
+    mathbackground: "#FFEEEE",
+    mathsize: "90%"
+    }
+    }
+    },
+    Macros: {
+    href: "{}"
+    },
+    skipStartupTypeset: true,
+    messageStyle: "none",
+    extensions: ["Safe.js"],
+    });
+</script>
+<script type="text/javascript" nonce="">
+  window.addEventListener("DOMContentLoaded", () => {
+    const head = document.getElementsByTagName("head")[0];
+    const lib = document.createElement("script");
+    lib.type = "text/javascript";
+    // Always use the production asset in local dev, which is served from GCS. We tried to proxy and / or serve this
+    // in a better way in localhost, but it didn't work out. See b/328073416#comment8 for details.
+    const forceProdHost = window.location.hostname === "localhost";
+    lib.src = `${forceProdHost ? "https://www.kaggle.com" : ""}/static/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML`;
+    head.appendChild(lib);
+  });
+</script>
+
+
+</div>
+
+
+
+
+  </main>
+
+
+
+<div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-lyqso6nxjx33" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="Learn%20NumPy%20NumPy%2050%20exercises%20and%20solution_files/anchor.html"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;">03AFcWeA5xV-
+S5EVJmqIo83ZGTyIwVjSS3xuwIpSn8ocIsr3ve-
+SGElxE27P5ZA_fO9cOG3jylqZA1_7vfZLe2wSEJGU4vKnBfr5wT4HzH9kUXQGdcEMOMHetKU85rP7t5aPjTvEWvlAOxS-
+m51OC0E5PX4_1nxwR6ibGed46lPFkwd61r6yBPJEXEBl02pdIJCetGmLTE5dUtI6iVbpn2iEak3z1vuV_pbdu-
+YiGrrVrW792OZs7tLglQYTgs7rH8PHN-tKvgpq92_k-
+NborAtZ5CixOD5Szg14FJkbrDDfNMDy8BqiJyD3VWdJs9MoczDHgKOl0JBB7PKhthVVhbUbIdV78PDJ_U3Gjv4UM3mFn4V1RHFjcrqCw_-
+mO84IO0ZG45QZFaNudwZBphghiZVi5blvNHq24W8J_fITXBVdMXbjg_rZhBkK8EulGLGAyQCZw1m6u9INhUnPzJM79IoUPcfgD2feH8FYyLv2HMt7j3K5vpN7JV79SpskBXP7R-
+dtCsBRBXy8kbhNwzGU2PZmnEuoNGXtry6WLfwzy6ALus6Gr-6pGhFcr4mwxXQJJeW8E0rEVQGzMM375etJE0IDj8X_FzH0tdAw_BQdQ_mfr74lARpNAad-9CyPrgOZAGhmLTi-3A_9qpvOCqoep6X0PhYlkOhje5-
+dfM9ptQkdQoPWvozXK7pH-3kZh1bdRr7s0P6QvGo_kFOcs8ic6O5KtlBEp1b3LsqAQ0rEcwPumk8Hlr5so4AK23-3Us9oNCWYq3a26O11VnPN3CMT8853u2_brkYE_nEcnkvs5loc-
+VKVc6QKAHeVMP68pgvnE8twgWrDRS0R_xaUD92Fh9q0N4KF4QhHM6l6QQL-
+O6RiWbGrE1zwI171-f-
+Fk_LWeR3AkJ78zeUdnS9dSN5bpycOe2iEHZH9E04DQrTwBJ2bnzVv2yva5Qpz87W6HGoM9L6DLbNF9SeHkwrK3rQCg1Z8WOw-
+hjPIAywwDbxdDWpZTREp08hQXh-DXek32PFYaeK8-
+ypk7rf63r8Oves0M8Afza2dfxomscRkxstVqSYgotyM8wpiB_UAuNsP5-
+h2Tn__fajQbmuMKzc4B37-BxJlx4Tl2OKuinziFrBuTeVXDYfd6IAoR0ls-
+hvJPIkM6fTZwqT8iYv7Y_eppWohXbpEyVTfrroJB7e6_H6Lm6IFH6dNDyJzrZH1SpeoPX0vmzeb8dnAbSV8PWMwRHY95QY64QCIO4G3RPJi5c4kgKHUQvhDuv-
+PYFRWqKcM1kaMTDTsSmDF4AFelDCCP8ncjfa9Kh6l_hnUwdwcX0gpvN53ucZqekPGdnihgK0LhwqRoV2HxyN4CTkrTGmI2AyEvwKswoK7DSNUH4UuscPE4fHHNNE3_hYHykd0N0O08MvcUV5vOe-
+ZwLumX8C6GXCtVZxIMroC4RfoRz5W8RZhs18OL5aOzIYy1Z0I-
+lWVnBOWOJzKPwhVdJFHRLURZYPxm8vfKdHUj_rM1RW6qFY7fKuG1Wk-
+OoTwmIcE6hoMItNrJ7sifKjiU9S6T1fWTZ6xcZJtKgIDPf0itslnpait8vOQb1Dprm4TpspdYWa-
+EZnBqc-
+v7UsozR2ALq3Y0SGCk09kE0-8xLhXAYnbWWv3yrG0cy7iL_MYy_q02kVXGrndMWJ4fI7gB3xySypUPRfaT60-6KmvH3Z6zMV4LnuPG48WIKLoCaiH-
+dnYqaLr16epxxwOBJQNZSAig9SAV_2R9hycWg9mNKHkTdBqtf9l1cfX0OOmwiEsyXD1PiEP19yHJtjervMsLZjxIcNEzX5JAfZ4Dq6k-8SHGn7Ihhicj4PTCz7rmOVVa1e2kvCipgvKv-
+rEEsDNkFo9EBpAy2CWB-LcE4ecByJKZdxw</textarea></div><iframe style="display: none;"></iframe></div></body></html>
